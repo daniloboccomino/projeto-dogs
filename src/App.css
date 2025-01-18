@@ -8,7 +8,7 @@ body {
   --type-second: 'Spectral', Georgia;
   font-family: var(--type-first);
   margin: 0;
-  padding: 0;
+  padding: 4rem 0;
 }
 
 h1,
@@ -37,6 +37,10 @@ input {
   display: block;
   font-family: var(--type-first);
   font-size: 1rem;
+}
+
+a {
+  text-decoration: none;
 }
 
 .container {
