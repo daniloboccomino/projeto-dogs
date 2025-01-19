@@ -4,9 +4,12 @@ import Input from '../form/Input'
 import Button from '../form/Button'
 import { USER_POST } from '../../api'
 import { UserContext } from '../../UserContext'
+import useFetch from '../../hooks/useFetch'
+import Error from '../helper/Error'
 
 const LoginCreate = () => {
   const { userLogin } = React.useContext(UserContext)
+  const { error, loading, request } = useFetch()
   const email = useForm(true, types.email)
   const username = useForm(true)
   const password = useForm(true)
@@ -18,7 +21,7 @@ const LoginCreate = () => {
       username: username.value,
       password: password.value,
     })
-    const response = await fetch(url, options)
+    const { response } = await request(url, options)
     if (response.ok) userLogin(username.value, password.value)
   }
 
@@ -43,7 +46,12 @@ const LoginCreate = () => {
           type='password'
           {...password}
         />
-        <Button>Cadastrar</Button>
+        {loading ? (
+          <Button disabled>Cadastrando ... </Button>
+        ) : (
+          <Button>Cadastrar</Button>
+        )}
+        <Error error={error} />
       </form>
     </section>
   )
