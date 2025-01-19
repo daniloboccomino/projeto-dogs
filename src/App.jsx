@@ -5,6 +5,8 @@ import Header from './components/Header'
 import Home from './components/Home'
 import Login from './components/login/Login'
 import { UserStorage } from './UserContext'
+import ProtectedRoute from './components/helper/ProtectedRoute'
+import User from './components/user/User'
 
 const App = () => {
   return (
@@ -18,8 +20,16 @@ const App = () => {
               element={<Home />}
             />
             <Route
-              path='/login/*'
+              path='login/*'
               element={<Login />}
+            />
+            <Route
+              path='conta/*'
+              element={
+                <ProtectedRoute>
+                  <User />
+                </ProtectedRoute>
+              }
             />
           </Routes>
         </UserStorage>
