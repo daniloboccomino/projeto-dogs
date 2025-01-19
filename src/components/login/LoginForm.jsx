@@ -3,11 +3,10 @@ import { Link } from 'react-router-dom'
 import Input from '../form/Input'
 import Button from '../form/Button'
 import useForm from '../../hooks/useForm'
-import { TOKEN_POST, USER_GET } from '../../api'
 import { UserContext } from '../../UserContext'
 
 const LoginForm = () => {
-  const { userlogin } = React.useContext(UserContext)
+  const { userLogin, loading, error } = React.useContext(UserContext)
   const username = useForm()
   const password = useForm()
 
@@ -36,7 +35,12 @@ const LoginForm = () => {
           type='password'
           {...password}
         />
-        <Button>Entrar</Button>
+        {loading ? (
+          <Button disabled>Carregando ... </Button>
+        ) : (
+          <Button>Entrar</Button>
+        )}
+        {error && <p>{error}</p>}
       </form>
       <Link to='/login/criar'>Cadastre</Link>
     </section>
