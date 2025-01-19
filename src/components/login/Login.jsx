@@ -1,4 +1,5 @@
 import React from 'react'
+import styles from './Login.module.css'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import LoginForm from './LoginForm'
 import LoginCreate from './LoginCreate'
@@ -12,26 +13,28 @@ const Login = () => {
   return login === true ? (
     <Navigate to='/conta' />
   ) : (
-    <div>
-      <Routes>
-        <Route
-          path='/'
-          element={<LoginForm />}
-        />
-        <Route
-          path='criar'
-          element={<LoginCreate />}
-        />
-        <Route
-          path='esqueci'
-          element={<LoginForgotPassword />}
-        />
-        <Route
-          path='resetar'
-          element={<LoginResetPassword />}
-        />
-      </Routes>
-    </div>
+    <section className={styles.login}>
+      <div className={styles.forms}>
+        <Routes>
+          <Route
+            path='/'
+            element={<LoginForm />}
+          />
+          <Route
+            path='criar'
+            element={<LoginCreate />}
+          />
+          <Route
+            path='esqueci'
+            element={<LoginForgotPassword />}
+          />
+          <Route
+            path='resetar'
+            element={<LoginResetPassword />}
+          />
+        </Routes>
+      </div>
+    </section>
   )
 }
 
