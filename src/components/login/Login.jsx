@@ -2,7 +2,7 @@ import React from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import LoginForm from './LoginForm'
 import LoginCreate from './LoginCreate'
-import LoginLostPassword from './LoginLostPassword'
+import LoginForgotPassword from './LoginForgotPassword'
 import LoginResetPassword from './LoginResetPassword'
 import { UserContext } from '../../UserContext'
 
@@ -23,8 +23,8 @@ const Login = () => {
           element={<LoginCreate />}
         />
         <Route
-          path='perdeu'
-          element={<LoginLostPassword />}
+          path='esqueci'
+          element={<LoginForgotPassword />}
         />
         <Route
           path='resetar'
