@@ -4,33 +4,17 @@ import Input from '../form/Input'
 import Button from '../form/Button'
 import useForm from '../../hooks/useForm'
 import { TOKEN_POST, USER_GET } from '../../api'
+import { UserContext } from '../../UserContext'
 
 const LoginForm = () => {
+  const { userlogin } = React.useContext(UserContext)
   const username = useForm()
   const password = useForm()
-
-  React.useEffect(() => {
-    const token = window.localStorage.getItem('token')
-    if (token) getUser(token)
-  }, [])
-
-  async function getUser(token) {
-    const { url, options } = USER_GET(token)
-    const response = await fetch(url, options)
-    const json = await response.json()
-  }
 
   async function handleSubmit(event) {
     event.preventDefault()
     if (username.validate() && password.validate()) {
-      const { url, options } = TOKEN_POST({
-        username: username.value,
-        password: password.value,
-      })
-      const response = await fetch(url, options)
-      const json = await response.json()
-      window.localStorage.setItem('token', json.token)
-      getUser(json.token)
+      userLogin(username.value, password.value)
     }
   }
 
