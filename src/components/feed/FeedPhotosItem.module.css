@@ -20,7 +20,7 @@
 .photo img {
   grid-area: 1 / 1;
 }
-.view {
+.views {
   grid-area: 1 / 1;
   background: rgba(0, 0, 0, 0.3);
   color: #fff;
@@ -28,7 +28,7 @@
   font-size: 1rem;
 }
 
-.view::before {
+.views::before {
   background: url('../../assets/visualizacao.svg') no-repeat;
   content: '';
   display: inline-block;
@@ -37,7 +37,7 @@
   margin-right: 0.25rem;
 }
 
-.photo:hover .view {
+.photo:hover .views {
   display: flex;
   align-items: center;
   justify-content: center;
