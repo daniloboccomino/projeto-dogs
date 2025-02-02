@@ -1,6 +1,5 @@
-import { cache } from 'react'
-
 export const API_URL = 'https://dogsapi.origamid.dev/json'
+const token = window.localStorage.getItem('token')
 
 export function TOKEN_POST(body) {
   return {
@@ -52,19 +51,6 @@ export function USER_POST(body) {
   }
 }
 
-export function PHOTO_POST(token, formData) {
-  return {
-    url: API_URL + '/api/photo',
-    options: {
-      method: 'POST',
-      headers: {
-        Authorization: 'Bearer ' + token,
-      },
-      body: formData,
-    },
-  }
-}
-
 export function PHOTOS_GET({ page, total, user }) {
   return {
     url: `${API_URL}/api/photo/?_page=${page}&_total=${total}&_user=${user}`,
@@ -75,14 +61,39 @@ export function PHOTOS_GET({ page, total, user }) {
   }
 }
 
-export function PHOTO_GET(id) {
-  return {
-    url: `${API_URL}/api/photo/${id}`,
-    options: {
-      method: 'GET',
-      cache: 'no-store',
-    },
-  }
+export const PHOTO = {
+  GET(id) {
+    return {
+      url: `${API_URL}/api/photo/${id}`,
+      options: {
+        method: 'GET',
+        cache: 'no-store',
+      },
+    }
+  },
+  POST(token, formData) {
+    return {
+      url: API_URL + '/api/photo',
+      options: {
+        method: 'POST',
+        headers: {
+          Authorization: 'Bearer ' + token,
+        },
+        body: formData,
+      },
+    }
+  },
+  DELETE(id) {
+    return {
+      url: `${API_URL}/api/photo/${id}`,
+      options: {
+        method: 'DELETE',
+        headers: {
+          Authorization: 'Bearer ' + token,
+        },
+      },
+    }
+  },
 }
 
 export function COMMENT_POST(id, token, body) {
