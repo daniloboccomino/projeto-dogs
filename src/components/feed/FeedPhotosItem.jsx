@@ -9,7 +9,7 @@ const FeedPhotosItem = ({ photo, setModalPhoto }) => {
 
   return (
     <li
-      className={styles.photo}
+      className={styles.photo + ' animeLeft'}
       onClick={handleClick}
     >
       <Image

@@ -1,5 +1,4 @@
 import React from 'react'
-import styles from './FeedPhotos.module.css'
 import FeedPhotosItem from './FeedPhotosItem'
 import useFetch from '../../hooks/useFetch'
 import { PHOTOS_GET } from '../../api'
@@ -24,7 +23,7 @@ const FeedPhotos = ({ page, user, setInfinite, setModalPhoto }) => {
   ) : loading ? (
     <Loading />
   ) : data ? (
-    <ul className={styles.feed + ' animeLeft'}>
+    <>
       {data.map(photo => (
         <FeedPhotosItem
           key={photo.id}
@@ -32,7 +31,7 @@ const FeedPhotos = ({ page, user, setInfinite, setModalPhoto }) => {
           setModalPhoto={setModalPhoto}
         />
       ))}
-    </ul>
+    </>
   ) : null
 }
 

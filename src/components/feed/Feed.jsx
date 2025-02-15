@@ -30,23 +30,25 @@ const Feed = ({ user }) => {
   }, [infinite])
 
   return (
-    <div>
+    <>
       {modalPhoto && (
         <FeedModal
           photo={modalPhoto}
           setModalPhoto={setModalPhoto}
         />
       )}
-      {pages.map(page => (
-        <FeedPhotos
-          key={page}
-          page={page}
-          user={user}
-          setInfinite={setInfinite}
-          setModalPhoto={setModalPhoto}
-        />
-      ))}
-    </div>
+      <ul className={styles.feed + ' animeLeft'}>
+        {pages.map(page => (
+          <FeedPhotos
+            key={page}
+            page={page}
+            user={user}
+            setInfinite={setInfinite}
+            setModalPhoto={setModalPhoto}
+          />
+        ))}
+      </ul>
+    </>
   )
 }
 
