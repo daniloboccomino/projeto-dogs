@@ -31,11 +31,7 @@ const LoginForgotPassword = () => {
             label='Login'
             {...login}
           />
-          {loading ? (
-            <Button disabled>Enviando ... </Button>
-          ) : (
-            <Button>Enviar Email</Button>
-          )}
+          <Button disabled={loading}>Enviar Email</Button>
           <Error error={error} />
         </form>
       )}

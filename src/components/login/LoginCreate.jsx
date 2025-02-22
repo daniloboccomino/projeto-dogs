@@ -46,11 +46,7 @@ const LoginCreate = () => {
           type='password'
           {...password}
         />
-        {loading ? (
-          <Button disabled>Cadastrando ... </Button>
-        ) : (
-          <Button>Cadastrar</Button>
-        )}
+        <Button disabled={loading}>Cadastrar</Button>
         <Error error={error} />
       </form>
     </section>

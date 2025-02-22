@@ -45,11 +45,7 @@ const LoginResetPassword = () => {
           type='password'
           {...password}
         />
-        {loading ? (
-          <Button disabled>Resetar ... </Button>
-        ) : (
-          <Button>Resetar</Button>
-        )}
+        <Button disabled={loading}>Resetar</Button>
         <Error error={error} />
       </form>
     </div>

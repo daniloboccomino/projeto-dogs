@@ -67,11 +67,7 @@ const UserPost = () => {
           onChange={handleImgChange}
           className={styles.file}
         />
-        {loading ? (
-          <Button disabled>Enviando ... </Button>
-        ) : (
-          <Button>Enviar</Button>
-        )}
+        <Button disabled={loading}>Enviar</Button>
         <Error error={error} />
       </form>
       {img.preview && (

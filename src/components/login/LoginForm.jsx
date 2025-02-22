@@ -38,11 +38,7 @@ const LoginForm = () => {
           type='password'
           {...password}
         />
-        {loading ? (
-          <Button disabled>Carregando ... </Button>
-        ) : (
-          <Button>Entrar</Button>
-        )}
+        <Button disabled={loading}>Entrar</Button>
         <Error error={error} />
       </form>
       <Link
