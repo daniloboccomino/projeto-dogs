@@ -5,6 +5,7 @@ import Feed from '../feed/Feed'
 import UserPost from './UserPost'
 import UserStats from './UserStats'
 import { UserContext } from '../../UserContext'
+import NotFound from '../NotFound'
 
 const User = () => {
   const { data } = React.useContext(UserContext)
@@ -24,6 +25,10 @@ const User = () => {
         <Route
           path='estatisticas'
           element={<UserStats />}
+        />
+        <Route
+          path='*'
+          element={<NotFound />}
         />
       </Routes>
     </section>
