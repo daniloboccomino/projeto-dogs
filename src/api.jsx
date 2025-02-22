@@ -109,3 +109,34 @@ export function COMMENT_POST(id, token, body) {
     },
   }
 }
+
+export const PASSWORD = {
+  LOST: {
+    POST(body) {
+      return {
+        url: `${API_URL}/api/password/lost`,
+        options: {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(body),
+        },
+      }
+    },
+  },
+  RESET: {
+    POST(body) {
+      return {
+        url: `${API_URL}/api/password/reset`,
+        options: {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(body),
+        },
+      }
+    },
+  },
+}
