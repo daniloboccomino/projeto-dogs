@@ -2,8 +2,9 @@ import React from 'react'
 import styles from './Feed.module.css'
 import FeedModal from './FeedModal'
 import FeedPhotos from './FeedPhotos'
+import PropTypes from 'prop-types'
 
-const Feed = ({ user }) => {
+const Feed = ({ user = 0 }) => {
   const [modalPhoto, setModalPhoto] = React.useState(null)
   const [pages, setPages] = React.useState([1])
   const [infinite, setInfinite] = React.useState(true)
@@ -50,6 +51,10 @@ const Feed = ({ user }) => {
       </ul>
     </>
   )
+}
+
+Feed.prototype = {
+  user: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 }
 
 export default Feed
