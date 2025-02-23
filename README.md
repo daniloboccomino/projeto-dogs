@@ -8,6 +8,7 @@ Projeto de Rede social para cachorros. Curso de React da [Origamid](https://www.
 - Gerenciamento de rotas: [React Router](https://reactrouter.com/)
 - Validação de tipos de dados: [PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html)
 - Gerenciamento de SVGs: [vite-plugin-svgr](https://github.com/pd4d10/vite-plugin-svgr)
+- Biblioteca para gráficos de estatísticas: [victory](https://github.com/FormidableLabs/Victory)
 
 ```js
 // vite.config.js
