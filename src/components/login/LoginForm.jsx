@@ -7,6 +7,7 @@ import Button from '../form/Button'
 import useForm from '../../hooks/useForm'
 import { UserContext } from '../../UserContext'
 import Error from '../helper/Error'
+import Head from '../helper/Head'
 
 const LoginForm = () => {
   const { userLogin, loading, error } = React.useContext(UserContext)
@@ -22,6 +23,7 @@ const LoginForm = () => {
 
   return (
     <section className='animeLeft'>
+      <Head title='Login' />
       <h1 className='title'>Login</h1>
       <form
         className={loginform.form}
