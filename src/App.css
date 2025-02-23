@@ -10,7 +10,7 @@ body {
   --type-second: 'Spectral', Georgia;
   font-family: var(--type-first);
   margin: 0;
-  padding: 4rem 0;
+  padding-top: 4rem;
 }
 
 h1,
@@ -44,6 +44,16 @@ input {
 a {
   color: #333;
   text-decoration: none;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh + 10rem);
+}
+
+.app-body {
+  flex: 1;
 }
 
 .container {
